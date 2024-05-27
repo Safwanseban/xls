@@ -11,7 +11,7 @@ import (
 	yymmdd "github.com/extrame/goyymmdd"
 )
 
-//content type
+// content type
 type contentHandler interface {
 	String(*WorkBook) []string
 	FirstCol() uint16
@@ -72,7 +72,7 @@ func (xf *XfRk) String(wb *WorkBook) string {
 						f = float64(i)
 					}
 					t := timeFromExcelTime(f, wb.dateMode == 1)
-					return yymmdd.Format(t, formatter.str)
+					return t.Format("02.01.2006")
 				}
 			}
 			// see http://www.openoffice.org/sc/excelfileformat.pdf Page #174
